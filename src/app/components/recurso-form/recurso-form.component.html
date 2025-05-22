@@ -1,0 +1,46 @@
+<form (ngSubmit)="onSubmit()" class="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
+  <div class="mb-4">
+    <label for="nombre" class="block text-gray-700 text-sm font-bold mb-2">Nombre del Recurso</label>
+    <input
+      type="text"
+      id="nombre"
+      name="nombre"
+      [(ngModel)]="nombre"
+      class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      required
+    >
+  </div>
+
+  <div class="mb-4">
+    <label for="categoria" class="block text-gray-700 text-sm font-bold mb-2">Categoría</label>
+    <input
+      type="text"
+      id="categoria"
+      name="categoria"
+      [(ngModel)]="categoria"
+      class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      required
+    >
+  </div>
+
+  <div class="mb-6">
+    <label for="prioridad" class="block text-gray-700 text-sm font-bold mb-2">Prioridad</label>
+    <select
+      id="prioridad"
+      name="prioridad"
+      [(ngModel)]="prioridad"
+      class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+    >
+      <option value="alta">Alta</option>
+      <option value="media">Media</option>
+      <option value="baja">Baja</option>
+    </select>
+  </div>
+
+  <button
+    type="submit"
+    class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+  >
+    Agregar Recurso
+  </button>
+</form> 

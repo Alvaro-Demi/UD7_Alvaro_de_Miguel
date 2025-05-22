@@ -1,0 +1,36 @@
+<div class="max-w-4xl mx-auto p-6">
+  <h2 class="text-2xl font-bold mb-6 text-gray-800">Lista de Recursos</h2>
+  
+  <div class="space-y-4">
+    <div *ngFor="let recurso of recursos" 
+         class="bg-white p-4 rounded-lg shadow-md flex items-center justify-between">
+      <div class="flex-1">
+        <h3 class="text-lg font-semibold text-gray-800">{{ recurso.nombre }}</h3>
+        <p class="text-gray-600">Categoría: {{ recurso.categoria }}</p>
+        <span [class]="'inline-block px-2 py-1 rounded-full text-sm font-medium ' + getPrioridadClass(recurso.prioridad)">
+          {{ recurso.prioridad | titlecase }}
+        </span>
+      </div>
+      
+      <div class="flex space-x-2">
+        <button *ngIf="!recurso.adquirido"
+                (click)="marcarComoAdquirido(recurso.id)"
+                class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
+          Adquirido
+        </button>
+        <button *ngIf="recurso.adquirido"
+                class="px-4 py-2 bg-gray-500 text-white rounded-md cursor-not-allowed">
+          Adquirido
+        </button>
+        <button (click)="eliminarRecurso(recurso.id)"
+                class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">
+          Eliminar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="recursos.length === 0" class="text-center py-8 text-gray-500">
+    No hay recursos agregados aún.
+  </div>
+</div> 
